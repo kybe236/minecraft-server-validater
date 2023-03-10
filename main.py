@@ -60,7 +60,7 @@ def print_time(threadname):
             server = JavaServer(ip, 25565)
             status = server.status()
         except Exception as ex:
-            print(ex)
+            print(f"er: {ex}")
         else:
             print("Found server: " + ip + " " + status.version.name + " " + str(status.players.online) + " " + str(
                 status.players.max))
