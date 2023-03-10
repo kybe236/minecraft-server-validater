@@ -10,8 +10,10 @@ parser.add_argument("-i", "--input_file", type=str, help="IPs file")
 args = parser.parse_args()
 input_file = args.input_file
 
+
 # set list for ips
 masscan = []
+
 
 # open file and create a list of lines
 fileHandler = open(input_file, "r")
@@ -54,6 +56,7 @@ class MyThread(threading.Thread):
 
 
 # check the server via the mcstatus api
+
 def check(threadname):
     for z in split[int(threadname)]:
         try:
