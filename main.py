@@ -1,16 +1,17 @@
-import argparse
-import threading
-import time
-import os
-from mcstatus import JavaServer
+import argparse  # import argparse for the cli args
+import os  # import os for new line breaks
+import threading  # import threading for multi threads
 
+from mcstatus import JavaServer  # import mcstatus to check minecraft server status
+
+# parse cli input
 parser = argparse.ArgumentParser(description='minecraft server tester')
 parser.add_argument("-i", "--input_file", type=str, help="IPs file")
 args = parser.parse_args()
-
-masscan = []
-
 input_file = args.input_file
+
+# set list for ips
+masscan = []
 
 
 fileHandler = open(input_file, "r")
@@ -28,7 +29,6 @@ def split_array(mas, n):
 
 threads = int(input('threads: '))
 
-time.sleep(2)
 
 if len(masscan) < int(threads):
     threads = len(masscan)
