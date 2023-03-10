@@ -7,10 +7,9 @@ from mcstatus import JavaServer
 parser = argparse.ArgumentParser(description='minecraft server tester')
 parser.add_argument("-i", "--input_file", type=str, help="IPs file")
 args = parser.parse_args()
+input_file = args.input_file
 
 masscan = []
-
-input_file = args.input_file
 
 
 fileHandler = open(input_file, "r")
