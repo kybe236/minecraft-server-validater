@@ -34,8 +34,6 @@ if len(masscan) < int(threads):
 
 split = list(split_array(masscan, threads))
 
-exitFlag = 0
-
 
 class MyThread(threading.Thread):
     def __init__(self, threadid, name):
@@ -45,15 +43,12 @@ class MyThread(threading.Thread):
 
     def run(self):
         print("Starting Thread " + self.name)
-        print_time(self.name)
+        check(self.name)
         print("Exiting Thread " + self.name)
 
 
-def print_time(threadname):
+def check(threadname):
     for z in split[int(threadname)]:
-        if exitFlag:
-            threadname.exit()
-            print("1")
         try:
             ip = z
             server = JavaServer(ip, 25565)
